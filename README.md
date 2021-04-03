@@ -49,6 +49,11 @@ DST="/share/Download/tmp/dst"
 ```
 注意：src目录下面的文件需要放到各个子目录下面去，例如src/anime/*,src/tv/*，这样才能保证islinked.lk工作正常
 
+### 重新连接，一次性删除所有islinked.lk文件
+```
+find /share/Download/tmp -name "islinked.lk" | xargs rm -f
+```
+替换前面的路径/share/Download/tmp为你自己的路径
 ## 修改限制2M大小以下的复制
 修改脚本参数FILEGIG，原脚本是1M大小，修改为下面这样就是2M大小
 ```
