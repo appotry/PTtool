@@ -1,6 +1,20 @@
 # PTtool
 
 # 硬链接工具
+## 设计目的
+方便PT用户硬链接文件，不需要再最大可能情况下节约空间，并保持做种。
+小于1M的文件直接复制，方便emby，tmm等工具刮削修改nfo等小文件。
+大于1M的文件硬链接到目的目录，可以修改文件名，但是不能修改文件内容！
+
+例如：
+/share/Download/src #保存下载的PT文件
+/share/Download/dst #保存你自己处理过的视频文件，吧emby，tmm的目录设置到dst下面
+下载脚本后chmod +x mklink.sh给与执行权限
+使用mklink脚本修改如下，然后直接运行mklink.sh。就可以把src下面的文件全部硬链接到dst目录。mklink适合一次性把源文件夹链接到目的文件夹
+```
+SRC="/share/Download/src"
+DST="/share/Download/dst"
+```
 
 ## mklink.sh
 修改脚本参数源目录，目的目录,替换为你自己的目录。
