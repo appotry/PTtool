@@ -56,7 +56,7 @@ function  mklink ()
         #判断文件是否已经存在
         #不存在才复制
         if [ ! -f $dstfile ]; then
-          echo "cp $i $dstfile"
+          echo "cp -l $i $dstfile"
           cp -l $i $dstfile
         fi
         
