@@ -18,6 +18,12 @@ DST="/share/Download/dst"
 
 注意，源目录，目的目录需要在一个分区里面。硬链接不能跨分区。
 
+## 使用说明
+下载资源目录/share/Download，qbittorrent资源分类下载到/share/Download/src/下面的各个子目录，例如tv, anime, tv, movie, 4k, soft等等
+创建一个资源整理使用目录/share/Download/dst/目录，然后就可以把/share/Download/src和/share/Download/dst目录作为下面2个脚本的输入目录，来使用了
+
+小文件直接复制，方便tmm刮削修改nfo文件，大文件硬链接，只占有一份空间，但有2分文件，可以改名，移动目录，方便tmm整理刮削。 做种，emby使用两不误！
+
 ## mklink.sh
 修改脚本参数源目录，目的目录,替换为你自己的目录。
 脚本将把源目录所有文件硬链接到目的目录，小于1M的文件直接复制到目的目录。方便nfo等小文件刮削修改，大于1M的文件
