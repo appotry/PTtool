@@ -1,5 +1,6 @@
 #!/bin/sh
 #auther: andycrusoe@gmail.com
+#使用说明: https://github.com/appotry/PTtool#readme
 
 #查找文件硬链接
 #ls -ialh file.txt
