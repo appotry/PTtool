@@ -125,9 +125,10 @@ if [ $# -eq 2 ]; then
     echo "dst:$DST"
 else
     servicectl_usage
+    echo "use default set:"
+    echo "源目录src:$SRC"
+    echo "目的目录dst:$DST"
 fi
-
-exit
 
 for dir in $(ls $SRC)
 do
