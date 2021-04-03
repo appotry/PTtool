@@ -34,7 +34,7 @@ do
     #判断目录是否已经存在
     tmppth=`dirname $i`
     pth=${tmppth/$SRC/$DST}
-    if [ ! -e $pth ]; then
+    if [ ! -d $pth ]; then
         echo "mkdir -p $pth"
         mkdir -p $pth
     else
@@ -77,7 +77,7 @@ do
     #判断目录是否已经存在
     tmppth=`dirname $i`
     pth=${tmppth/$SRC/$DST}
-    if [ ! -e $pth ]; then
+    if [ ! -d $pth ]; then
       echo "mkdir -p $pth"
       mkdir -p $pth
     fi
