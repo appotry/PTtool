@@ -29,7 +29,8 @@ tmm，emby刮削的时候，必定修改nfo文件，下载的封面等图片不�
 ```
 /share/Downlosd/src
 /share/Download/dst
-在src目录下面建立子目录movie,music,anime,tv,4k等等，在qbittorrent里面设置分类，指向这里的movie,music,anime，tv等子目录。下载完后使用下面的硬链接脚本，
+在src目录下面建立子目录movie,music,anime,tv,4k等等，在qbittorrent里面设置分类，
+指向这里的movie,music,anime，tv等子目录。下载完后使用下面的硬链接脚本，
 把文件硬链接到目的文件夹。tmm，emby使用目的文件夹刮削数据。
 ```
 ## mklink.sh
