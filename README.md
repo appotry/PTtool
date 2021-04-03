@@ -16,9 +16,12 @@ SRC="/share/Download/src"
 DST="/share/Download/dst"
 ```
 
+注意，源目录，目的目录需要在一个分区里面。硬链接不能跨分区。
+
 ## mklink.sh
 修改脚本参数源目录，目的目录,替换为你自己的目录。
-脚本将把源目录所有文件硬链接到目的目录，小于1M的文件直接复制到目的目录。方便nfo等小文件刮削修改
+脚本将把源目录所有文件硬链接到目的目录，小于1M的文件直接复制到目的目录。方便nfo等小文件刮削修改，大于1M的文件
+硬链接到目的目录，以节约空间，2份文件只占有一份空间。
 ```
 SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
@@ -32,6 +35,7 @@ DST="/share/Download/tmp/dst"
 SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
 ```
+注意：src目录下面的文件需要放到各个子目录下面去，例如src/anime/*,src/tv/*，这样才能保证islinked.lk工作正常
 
 ## 修改限制2M大小以下的复制
 修改脚本参数FILEGIG，原脚本是1M大小，修改为下面这样就是2M大小
