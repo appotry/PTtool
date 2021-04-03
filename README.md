@@ -1,3 +1,4 @@
+[toc]
 # PTtool
 
 # 硬链接工具
@@ -49,7 +50,7 @@ DST="/share/Download/tmp/dst"
 ```
 注意：src目录下面的文件需要放到各个子目录下面去，例如src/anime/*,src/tv/*，这样才能保证islinked.lk工作正常
 
-### 重新连接，一次性删除所有islinked.lk文件
+### 重新建立连接，一次性删除所有islinked.lk文件
 ```
 find /share/Download/tmp -name "islinked.lk" | xargs rm -f
 ```
