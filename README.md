@@ -49,14 +49,18 @@ DST="/share/Download/tmp/dst"
 mklink 直接针对2个文件夹做硬链接，小于1m的复制，但是没有判断是否已经硬链接过。适合全新的没有硬链接过的目录。
 
 ## dirlink.sh
+设计原理：针对输入原路径下一级子目录判断是否有文件islinked.lk，
+有这个文件就跳过，没有就硬链接这个子目录到目的目录生成对应的子目录。
+小于1M的文件复制，大于1M的文件硬链接。
+
 可以直接修改脚本参数，可以从参数$!,$2输入源目录，目的目录。
 此脚本和mklink.sh区别在于，将检查每个目录是否已经被硬链接过，已经连接过的将跳过去不再硬链接。
 原理是在源文件夹目录下添加文件islinked.lk，通过检测这个文件来判断是否硬链接过
 ```
-SRC="/share/Download/tmp/src"
-DST="/share/Download/tmp/dst"
+SRC="/share/Download/tmp/src/movie"
+DST="/share/Download/tmp/dst/movie"
 ```
-注意：src目录下面的文件需要放到各个子目录下面去，例如src/anime/*,src/tv/*，这样才能保证islinked.lk工作正常
+注意：src目录下面的文件需要放到各个子目录下面去，例如src/anime/amine1,src/tv/tv2，这样才能保证islinked.lk工作正常
 目录设置可以直接修改脚本，也可以命令行输入
 ```
 #dirlink.sh sourcedir dstdir
