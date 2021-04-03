@@ -1,5 +1,6 @@
 #!/bin/sh
 #auther: andycrusoe@gmail.com
+#使用说明:https://github.com/appotry/PTtool#readme
 #结合du -b可以得到性能更快更好的版本，目前这个可用，先这样了
 
 
