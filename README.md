@@ -53,7 +53,7 @@ DST="/share/Download/tmp/dst"
 ```
 find /share/Download/tmp -name "islinked.lk" | xargs rm -f
 ```
-替换前面的路径/share/Download/tmp为你自己的路径
+替换前面的路径/share/Download/tmp为你自己的路径，操作和rm相关的命令一定注意不要输入错误，删错文件代价极大！
 ## 修改限制2M大小以下的复制
 修改脚本参数FILEGIG，原脚本是1M大小，修改为下面这样就是2M大小
 ```
