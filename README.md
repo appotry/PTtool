@@ -57,6 +57,11 @@ SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
 ```
 注意：src目录下面的文件需要放到各个子目录下面去，例如src/anime/*,src/tv/*，这样才能保证islinked.lk工作正常
+目录设置可以直接修改脚本，也可以命令行输入
+```
+#dirlink.sh sourcedir dstdir
+dirlink.sh /share/Download/tmp/src /share/Download/tmp/dst
+```
 
 ### 重新建立连接，一次性删除所有islinked.lk文件
 ```
