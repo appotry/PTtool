@@ -15,15 +15,18 @@
 SRC="/share/Download/src"
 DST="/share/Download/dst"
 ```
-
 注意，源目录，目的目录需要在一个分区里面。硬链接不能跨分区。
-
+## 解决的问题
+tmm，emby刮削的时候，必定修改nfo文件，下载的封面等图片不同刮削站点都不同，所以小文件复制，不怕修改。大文件硬链接，占有一份空间
 ## 使用说明
 下载资源目录/share/Download，qbittorrent资源分类下载到/share/Download/src/下面的各个子目录，例如tv, anime, tv, movie, 4k, soft等等
 创建一个资源整理使用目录/share/Download/dst/目录，然后就可以把/share/Download/src和/share/Download/dst目录作为下面2个脚本的输入目录，来使用了
 
 小文件直接复制，方便tmm刮削修改nfo文件，大文件硬链接，只占有一份空间，但有2分文件，可以改名，移动目录，方便tmm整理刮削。 做种，emby使用两不误！
-
+### 建议目录结构
+/share/Downlosd/src
+/share/Download/dst
+在src目录下面建立子目录movie,music,anime,tv,4k等等
 ## mklink.sh
 修改脚本参数源目录，目的目录,替换为你自己的目录。
 脚本将把源目录所有文件硬链接到目的目录，小于1M的文件直接复制到目的目录。方便nfo等小文件刮削修改，大于1M的文件
@@ -32,6 +35,7 @@ DST="/share/Download/dst"
 SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
 ```
+mklink 直接针对2个文件夹做硬链接，小于1m的复制，但是没有判断是否已经硬链接过。适合全新的没有硬链接过的目录。
 
 ## dirlink.sh
 可以直接修改脚本参数，可以从参数$!,$2输入源目录，目的目录。
