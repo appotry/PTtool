@@ -35,7 +35,7 @@ function  mklink ()
             echo "跳过处理目录:$i"
             echo "--"
             continue
-            else if [ -e $i ]; then
+        else if [ -e $i ]; then
             echo "THISSRC file:$i"
             fi
         fi
@@ -43,7 +43,7 @@ function  mklink ()
         #判断目录是否已经存在
         tmppth=`dirname $i`
         pth=${tmppth/$THISSRC/$THISDST}
-        if [ ! -e $pth ]; then
+        if [ ! -d $pth ]; then
             echo "mkdir -p $pth"
             mkdir -p $pth
         else
@@ -86,7 +86,7 @@ function  mklink ()
         #判断目录是否已经存在
         tmppth=`dirname $i`
         pth=${tmppth/$THISSRC/$THISDST}
-        if [ ! -e $pth ]; then
+        if [ ! -d $pth ]; then
           echo "mkdir -p $pth"
           mkdir -p $pth
         fi
