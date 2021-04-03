@@ -18,6 +18,8 @@ DST="/share/Download/dst"
 注意，源目录，目的目录需要在一个分区里面。硬链接不能跨分区。
 ## 解决的问题
 tmm，emby刮削的时候，必定修改nfo文件，下载的封面等图片不同刮削站点都不同，所以小文件复制，不怕修改。大文件硬链接，占有一份空间
+被硬链接过的文件，同时存在地方，但是都指向一个存储空间，只有所有的硬链接都删除了，这个文件才会被系统删除。
+同时，所有的硬链接文件，修改其中一个，其它所有指向这个位置的硬链接文件都被修改了。
 ## 使用说明
 下载资源目录/share/Download，qbittorrent资源分类下载到/share/Download/src/下面的各个子目录，例如tv, anime, tv, movie, 4k, soft等等
 创建一个资源整理使用目录/share/Download/dst/目录，然后就可以把/share/Download/src和/share/Download/dst目录作为下面2个脚本的输入目录，来使用了
