@@ -138,7 +138,7 @@ do
     dstdir=$DST/$dir
     echo "当前硬链接目录"$dstdir
     
-    if [ ! -d $dstdir ]; then
+    #if [ ! -d $dstdir ]; then
         if [ ! -e $SRC/$dir/islinked.lk ]; then
             mklink "$SRC/$dir"  "$dstdir" 
             touch "$SRC/$dir"/islinked.lk
@@ -147,7 +147,7 @@ do
             echo "$dir 已经硬链接过，跳过此目录"
             echo "=="
         fi
-    fi
+    #fi
     
 done
 
