@@ -6,8 +6,8 @@
 #find . -inum 1234
 
 #最后面不要加斜杠
-SRC="/share/Download/tmp/src"
-DST="/share/Download/tmp/dst"
+SRC="/share/Download/adult/tmp/src"
+DST="/share/Download/adult/tmp/dst"
 
 FILEGIG=1000000c
 
@@ -124,7 +124,7 @@ do
     echo "当前硬链接目录"$dstdir
     
     if [ ! -d $dstdir ]; then
-        if [ ! -e $dir/islinked.lk ]; then
+        if [ ! -e $SRC/$dir/islinked.lk ]; then
             mklink "$SRC/$dir"  "$dstdir" 
             touch "$SRC/$dir"/islinked.lk
             echo "=="
