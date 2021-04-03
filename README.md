@@ -19,6 +19,8 @@ SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
 ```
 
+## 修改限制2M大小以下的复制
+修改脚本参数FILEGIG，原脚本是1M大小
 
 ## 使用声明
 数据无价，小心操作。
