@@ -69,8 +69,9 @@ find /share/Download/tmp -name "islinked.lk" | xargs rm -f
 ```
 替换前面的路径/share/Download/tmp为你自己的路径，操作和rm相关的命令一定注意不要输入错误，删错文件代价极大！
 ### 一次性硬链接多个目录
-如下所示
+如下所示脚本
 ```
+#!/bin/sh
 /share/Download/source/dirlink.sh /share/Download/source/anime /share/Download/dst/anime
 /share/Download/source/dirlink.sh /share/Download/source/movie /share/Download/dst/movie
 /share/Download/source/dirlink.sh /share/Download/source/tv /share/Download/dst/tv
