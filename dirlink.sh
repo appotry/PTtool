@@ -35,7 +35,7 @@ function  mklink ()
             echo "跳过处理目录:$i"
             echo "--"
             continue
-        else if [ -e $i ]; then
+            else if [ -e $i ]; then
             echo "THISSRC file:$i"
             fi
         fi
@@ -117,6 +117,17 @@ function servicectl(){
 [[ -z $1 || -z $2 ]] && servicectl_usage
 }
 
+if [ $# -eq 2 ]; then
+    SRC=$1
+    DST=$2
+    echo "User set:"
+    echo "src:$SRC"
+    echo "dst:$DST"
+else
+    servicectl_usage
+fi
+
+exit
 
 for dir in $(ls $SRC)
 do
