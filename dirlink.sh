@@ -46,10 +46,10 @@ function  mklink ()
         if [ ! -d $pth ]; then
             echo "mkdir -p $pth"
             mkdir -p $pth
-        else
-            echo "跳过处理目录:$i"
-            echo "--"
-            continue
+        #else
+        #    echo "跳过处理目录:$i"
+        #    echo "--"
+        #    continue
         fi
         
         dstfile=$pth/`basename $i`
