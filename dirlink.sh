@@ -9,8 +9,8 @@
 #find . -inum 1234
 
 #最后面不要加斜杠
-SRC="/share/Download/adult/tmp/src"
-DST="/share/Download/adult/tmp/dst"
+SRC="/share/Download/tmp/src"
+DST="/share/Download/tmp/dst"
 
 FILEGIG=1000000c
 
