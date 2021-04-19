@@ -43,7 +43,7 @@ function  mklink ()
         
         #判断目录是否已经存在
         tmppth=`dirname $i`
-        pth=${tmppth/$THISSRC/$THISDST}
+        pth=${tmppth/"$THISSRC"/"$THISDST"}
         if [ ! -d $pth ]; then
             echo "mkdir -p $pth"
             mkdir -p $pth
@@ -86,7 +86,7 @@ function  mklink ()
         
         #判断目录是否已经存在
         tmppth=`dirname $i`
-        pth=${tmppth/$THISSRC/$THISDST}
+        pth=${tmppth/"$THISSRC"/"$THISDST"}
         if [ ! -d $pth ]; then
           echo "mkdir -p $pth"
           mkdir -p $pth
