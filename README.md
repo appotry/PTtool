@@ -90,9 +90,8 @@ FILEGIG=2000000c
 - 修改脚本目标目录
 将你的目录填在```your_path```的等号后。
 - 设置下载完成后自动运行
-在qt的web界面g，点击工具->选项->下载，勾选“Torrent 完成时运行外部程序”，填入autolink.sh的绝对位置，同时autolink与di>```
-/path/to/autolink.sh "%N" "%D" "%L"
-```
+在qt的web界面g，点击工具->选项->下载，勾选“Torrent 完成时运行外部程序”，填入```/path/to/autolink.sh "%N" "%D" "%L"```
+注意：填入autolink.sh的绝对位置，同时autolink与dirlink须在同一目录
 
 ## 使用声明
 数据无价，小心操作。
