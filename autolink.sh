@@ -13,7 +13,8 @@ set -x
 #qBittorrent %I：哈希值
 #在qBittorrent分别按如上顺序键入参数，ex:/path/to/autolink.sh "%N" "%F" "%L"
 
-your_path=/path/to/creat/link
+#your_path=/path/to/creat/link
+your_path=/mnt/nas/disk2/jellyfin
 
 #获取种子名称
 torrent_name="$1"
