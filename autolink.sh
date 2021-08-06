@@ -28,8 +28,10 @@ if [[ "$torrent_category" == *"movies"* || "$torrent_category" == *"series"* || 
 then
   if [ -d "$torrent_path"/"$torrent_name" ]
   then
+    rm "$torrent_path"/"$torrent_name"/islinked.lk
     "$(dirname $(readlink -f $0))"/dirlink.sh "$torrent_path" "$link_path_library"
   else
+    rm "$torrent_path"/islinked.lk
     "$(dirname $(readlink -f $0))"/dirlink.sh "$torrent_path"/.. "$link_path_library"
   fi
 fi
