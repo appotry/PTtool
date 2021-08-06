@@ -1,5 +1,4 @@
 #!/bin/bash
-set -x
 #qBittorrent命令参数：
 #qBittorrent %N：Torrent 名称
 #qBittorrent %F：内容路径（与多文件 torrent 的根目录相同）
@@ -20,11 +19,12 @@ your_path=/mnt/nas/disk2/jellyfin
 torrent_name="$1"
 #获取种子路径
 torrent_path="$2"
+
 #获取种子分类
 torrent_category="$3"
 
 link_path_library="$your_path"/"$3"
 
 if [[ "$3" == *"movies"* || "$3" == *"series"* || "$3" == *"documents"* || "$3" == *"operas"* ]]; then
-  ./dirlink.sh "$2" link_path_library
+  "$(dirname $(readlink -f $0))"/dirlink.sh "$2" "$link_path_library"
 fi
