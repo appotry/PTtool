@@ -28,13 +28,14 @@ link_path_library="$your_path"/"$torrent_category"
 if [[ "$torrent_category" == *"movies"* || "$torrent_category" == *"series"* || "$torrent_category" == *"documents"* || "$torrent_category" == *"operas"* ]]
 then
   #判断是单文件种子还是带有目录的种子
-  if [ -d "$torrent_path"/"$torrent_name" ]
+  if [ -d "$torrent_path"/"$torrent_name" ];
   then
     #如果是带有目录的种子，先删除下载过程中被误创建的记录
     rm "$torrent_path"/"$torrent_name"/islinked.lk
     #调用dirlink.sh，创建硬链接
     "$(dirname $(readlink -f $0))"/dirlink.sh "$torrent_path" "$link_path_library"
-  else
+  elif [ -e "$torrent_path"/"$torrent_name" ];
+  then
     #如果是单文件种子，同样先删除下载过程中被误创建的记录
     rm "$torrent_path"/islinked.lk
     #调用dirlink.sh，将下载目录（注意，这个需要自己手动在qbittorrent中设置好）下的所有文件创建硬链接
