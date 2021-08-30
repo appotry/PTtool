@@ -6,10 +6,14 @@ SHDNM=pt_more_thanks
 SHDVER=1.0.0
 #配置头结束。
 #编辑以下内容
-COOKIES="获取到的ID完整的粘贴在这里"#仅供娱乐，自行修改为正确cookies
-SITE="https://pterclub.com.disabled/thanks.php"#仅供娱乐，自行修改为你希望批量点赞的NexusPHP搭建的PT站点
-MINID="1"#开始ID
-MAXID="20000"#结束ID
+COOKIES="获取到的ID完整的粘贴在这里"
+#仅供娱乐，自行修改为正确cookies
+SITE="https://pterclub.com.disabled/thanks.php"
+#仅供娱乐，自行修改为你希望批量点赞的NexusPHP搭建的PT站点
+MINID="1"
+#开始ID
+MAXID="20000"
+#结束ID
 UA="Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0 pt_more_thanks/1.0.0"
 #不要编辑以下内容，除非你懂
 echo "当前IP"
