@@ -8,7 +8,7 @@
 
 例如：
 /share/Download/src #保存下载的PT文件
-/share/Download/dst #保存你自己处理过的视频文件，吧emby，tmm的目录设置到dst下面
+/share/Download/dst #保存你自己处理过的视频文件，把emby，tmm的目录设置到dst下面
 下载脚本后chmod +x mklink.sh给与执行权限
 使用mklink脚本修改如下，然后直接运行mklink.sh。就可以把src下面的文件全部硬链接到dst目录。mklink适合一次性把源文件夹链接到目的文件夹
 ```
@@ -18,7 +18,7 @@ DST="/share/Download/dst"
 注意，源目录，目的目录需要在一个分区里面。硬链接不能跨分区。
 ## 解决的问题
 tmm，emby刮削的时候，必定修改nfo文件，下载的封面等图片不同刮削站点都不同，所以小文件复制，不怕修改。大文件硬链接，占有一份空间
-被硬链接过的文件，同时存在地方，但是都指向一个存储空间，只有所有的硬链接都删除了，这个文件才会被系统删除。
+被硬链接过的文件，同时存在多个地方，但是都指向一个存储空间，只有所有的硬链接都删除了，这个文件才会被系统删除。
 同时，所有的硬链接文件，修改其中一个，其它所有指向这个位置的硬链接文件都被修改了。
 ## 使用说明
 下载资源目录/share/Download，qbittorrent资源分类下载到/share/Download/src/下面的各个子目录，例如tv, anime, tv, movie, 4k, soft等等
@@ -53,7 +53,7 @@ mklink 直接针对2个文件夹做硬链接，小于1m的复制，但是没有�
 有这个文件就跳过，没有就硬链接这个子目录到目的目录生成对应的子目录。
 小于1M的文件复制，大于1M的文件硬链接。
 
-可以直接修改脚本参数，可以从参数$!,$2输入源目录，目的目录。
+可以直接修改脚本源目录，目的目录参数，也可以从参数$!,$2输入源目录，目的目录。
 此脚本和mklink.sh区别在于，将检查每个目录是否已经被硬链接过，已经连接过的将跳过去不再硬链接。
 原理是在源文件夹目录下添加文件islinked.lk，通过检测这个文件来判断是否硬链接过
 ```
@@ -61,7 +61,7 @@ SRC="/share/Download/tmp/src/movie"
 DST="/share/Download/tmp/dst/movie"
 ```
 注意：src目录下面的文件需要放到各个子目录下面去，例如src/anime/amine1,src/tv/tv2，这样才能保证islinked.lk工作正常
-目录设置可以直接修改脚本，也可以命令行输入
+目录设置可以直接修改脚本，也可以命令行参数输入
 ```
 #dirlink.sh sourcedir dstdir
 dirlink.sh /share/Download/tmp/src /share/Download/tmp/dst
@@ -71,7 +71,7 @@ dirlink.sh /share/Download/tmp/src /share/Download/tmp/dst
 ```
 find /share/Download/tmp -name "islinked.lk" | xargs rm -f
 ```
-替换前面的路径/share/Download/tmp为你自己的路径，操作和rm相关的命令一定注意不要输入错误，删错文件代价极大！
+替换前面的路径/share/Download/tmp为你自己的路径，操作和rm相关的命令一定**注意不要输入错误**，删错文件代价极大！
 ### 一次性硬链接多个目录
 如下所示脚本link.sh
 ```
