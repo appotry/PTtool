@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #auther: andycrusoe@gmail.com
 #记录日志: ./dirlink.sh > dirlink.log
 #使用说明: https://github.com/appotry/PTtool#readme
