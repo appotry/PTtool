@@ -89,7 +89,8 @@ find /share/Download/tmp -name "islinked.lk" | xargs rm -f
 ```
 FILEGIG=2000000c
 ```
-## qBittorrent 下载完成时自动硬链接 autolink.sh
+## autolink.sh
+qBittorrent 下载完成时自动硬链接
 注意：脚本会判断是否进行硬链接的分类，分类详情见脚本内容。
 - 修改脚本目标目录
 将你的目录填在```your_path```的等号后。
