@@ -90,7 +90,7 @@ find /share/Download/tmp -name "islinked.lk" | xargs rm -f
 FILEGIG=2000000c
 ```
 ## autolink.sh
-qBittorrent 下载完成时自动硬链接
+qBittorrent 下载完成时自动硬链接下载完的种子，适用于新下载完成的种子文件。以前下载完成的文件建议使用`link.sh`脚本的方法。
 注意：脚本会判断是否进行硬链接的分类，分类详情见脚本内容。
 - 修改脚本目标目录
 将你的目录填在```your_path```的等号后。
