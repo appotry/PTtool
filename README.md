@@ -1,4 +1,6 @@
 # PTtool
+Github: [appotry/PTtool](https://github.com/appotry/PTtool)
+Gitee: 镜像 [bloodwolf/PTtool](https://gitee.com/bloodwolf/PTtool)
 
 # 硬链接工具
 ## 设计目的
