@@ -30,8 +30,8 @@ tmm，emby刮削的时候，必定修改nfo文件，下载的封面等图片不�
 小文件直接复制，方便tmm刮削修改nfo文件，大文件硬链接，只占有一份空间，但有2分文件，可以改名，移动目录，方便tmm整理刮削。 做种，emby使用两不误！
 ### 建议目录结构
 ```
-/share/Downlosd/src
-/share/Download/dst
+/share/Downlosd/src       # BT下载工具默认保存主目录
+/share/Download/dst       # 硬链接目的目录，Emby，tmm，使用的目录，保存各种刮削信息。以及个人文件名修改，目录结构修改。
 在src目录下面建立子目录movie,music,anime,tv,4k等等，在qbittorrent里面设置分类，
 指向这里的movie,music,anime，tv等子目录。下载完后使用下面的硬链接脚本，
 把文件硬链接到目的文件夹。tmm，emby使用目的文件夹刮削数据。
