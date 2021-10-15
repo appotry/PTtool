@@ -5,8 +5,9 @@ Gitee: 镜像 [bloodwolf/PTtool](https://gitee.com/bloodwolf/PTtool)
 ## PT工具集合
 - [硬链接工具](https://github.com/appotry/PTtool/)
 - [flexget-nexusphp](https://github.com/appotry/flexget-nexusphp), Flexget插件，增强对NexusPHP的过滤
-- [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed)
-- [PTPP](https://github.com/appotry/PT-Plugin-Plus)
+- [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed) 自动辅种助手。**PT三剑客**
+- [PTPP](https://github.com/appotry/PT-Plugin-Plus) 浏览器辅种助手。**PT三剑客**
+- [pt_helper](https://hub.docker.com/r/crazyq/pt_helper), 自动刷流与签到。**PT三剑客**
 - [PT站生成海报墙](https://github.com/appotry/universal-torrent-gallery)
 - [一键转种脚本](https://github.com/appotry/easy-upload)
 
