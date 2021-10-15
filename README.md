@@ -2,6 +2,13 @@
 Github: [appotry/PTtool](https://github.com/appotry/PTtool)
 Gitee: 镜像 [bloodwolf/PTtool](https://gitee.com/bloodwolf/PTtool)
 
+## 工具集合
+- [硬链接工具](https://github.com/appotry/PTtool/)
+- [flexget-nexusphp](https://github.com/appotry/flexget-nexusphp), Flexget插件，增强对NexusPHP的过滤
+- [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed)
+- [PtPP](https://github.com/appotry/PT-Plugin-Plus)
+- [PT站生成海报墙](https://github.com/appotry/universal-torrent-gallery)
+
 # 硬链接工具
 ## 设计目的
 方便PT用户硬链接文件，在最大可能情况下节约空间，并保持做种。
