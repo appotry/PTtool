@@ -9,7 +9,7 @@ Github: [appotry/PTtool](https://github.com/appotry/PTtool)
 - [pt_helper](https://hub.docker.com/r/crazyq/pt_helper), 自动刷流与签到。**PT三剑客**
 - [PT站生成海报墙](https://github.com/appotry/universal-torrent-gallery)
 - [一键转种脚本](https://github.com/appotry/easy-upload)
-- [nas-tools](https://github.com/jxxghp/nas-tools) **国人**出的NAS媒体库资源自动搜刮整理工具
+- [nas-tools](https://github.com/jxxghp/nas-tools) **国人**出的NAS媒体库资源自动搜刮整理工具，中文支持较好
 
 # 硬链接工具
 ## 设计目的
