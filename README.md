@@ -17,7 +17,7 @@ Github: [appotry/PTtool](https://github.com/appotry/PTtool)
 - [使用jeckett,sonarr,iyuu,qt,emby打造全自动追剧流程](https://blog.17lai.site/posts/9912bd5d/)
 - [如何使用tinyMediaManager刮削电影和电视剧，动画，并自动下载字幕](https://blog.17lai.site/posts/e6d40157/)
 
-![框架自动化构架图解](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)
+[![框架自动化构架图解](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)
 
 # 硬链接工具
 ## 设计目的
