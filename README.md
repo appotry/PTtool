@@ -23,7 +23,7 @@
 
 ### 框架自动化构架图解
 
-[![框架自动化构架图解](D:/andy/Pictures/tmp/20220509113832.webp)](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)
+[![框架自动化构架图解](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)
 
 ## 硬链接工具
 
