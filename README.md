@@ -11,6 +11,14 @@ Github: [appotry/PTtool](https://github.com/appotry/PTtool)
 - [一键转种脚本](https://github.com/appotry/easy-upload)
 - [nas-tools](https://github.com/jxxghp/nas-tools) **国人**出的NAS媒体库资源自动搜刮整理工具，中文支持较好
 
+## 相关教程
+
+- [视频图书和音乐完全自动化管理框架图解](https://blog.17lai.site/posts/db7bf49b/)
+- [使用jeckett,sonarr,iyuu,qt,emby打造全自动追剧流程](https://blog.17lai.site/posts/9912bd5d/)
+- [如何使用tinyMediaManager刮削电影和电视剧，动画，并自动下载字幕](https://blog.17lai.site/posts/e6d40157/)
+
+![框架自动化构架图解](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)
+
 # 硬链接工具
 ## 设计目的
 方便PT用户硬链接文件，在最大可能情况下节约空间，并保持做种。
