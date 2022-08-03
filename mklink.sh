@@ -36,6 +36,7 @@ else
     echo "use default set:"
     echo "源目录src:$SRC"
     echo "目的目录dst:$DST"
+    exit -1
 fi
 
 #查找大于1M的文件，硬链接
