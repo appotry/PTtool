@@ -78,13 +78,10 @@ tmm，emby刮削的时候，必定修改nfo文件，下载的封面等图片不�
 修改脚本参数源目录，目的目录,替换为你自己的目录。
 脚本将把源目录所有文件硬链接到目的目录，小于1M的文件直接复制到目的目录。方便nfo等小文件刮削修改，大于1M的文件
 硬链接到目的目录，以节约空间，2份文件只占有一份空间。
-```
-SRC="/share/Download/tmp/src"
-DST="/share/Download/tmp/dst"
-```
+
 mklink 直接针对2个文件夹做硬链接，小于1m的复制，但是没有判断是否已经硬链接过。**适合全新的没有硬链接过的目录**。
 
-```
+```bash
 #mklink.sh sourcedir dstdir
 mklink.sh /share/Download/tmp/src /share/Download/tmp/dst
 ```
@@ -115,7 +112,7 @@ find /share/Download/tmp -name "islinked.lk" | xargs rm -f
 替换前面的路径/share/Download/tmp为你自己的路径，操作和rm相关的命令一定**注意不要输入错误**，删错文件代价极大！
 ### 一次性硬链接多个目录
 如下所示脚本link.sh
-```
+```bash
 #!/bin/sh
 /share/Download/source/dirlink.sh /share/Download/source/anime /share/Download/dst/anime
 /share/Download/source/dirlink.sh /share/Download/source/movie /share/Download/dst/movie
