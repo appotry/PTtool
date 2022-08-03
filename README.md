@@ -1,6 +1,8 @@
 ## PTtool
 
 > Github: [appotry/PTtool](https://github.com/appotry/PTtool)
+>
+> 纯Bash Shell硬链接工具！支持所有Linux， BSD， Mac等支持标准Shell的操作系统！
 
 ---
 
