@@ -16,6 +16,28 @@ FILEGIG=1000000c
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 
+function servicectl_usage(){
+  echo "Usage:mklink.sh sourcedir dstdir"
+  return 1 
+}
+
+function servicectl(){
+[[ -z $1 || -z $2 ]] && servicectl_usage
+}
+
+if [ $# -eq 2 ]; then
+    SRC=$1
+    DST=$2
+    echo "User set:"
+    echo "src:$SRC"
+    echo "dst:$DST"
+else
+    servicectl_usage
+    echo "use default set:"
+    echo "源目录src:$SRC"
+    echo "目的目录dst:$DST"
+fi
+
 #查找大于1M的文件，硬链接
 for i in `find $SRC -size +$FILEGIG`
 do
