@@ -80,7 +80,7 @@ tmm，emby刮削的时候，必定修改nfo文件，下载的封面等图片不�
 SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
 ```
-mklink 直接针对2个文件夹做硬链接，小于1m的复制，但是没有判断是否已经硬链接过。==适合全新的没有硬链接过的目录==。
+mklink 直接针对2个文件夹做硬链接，小于1m的复制，但是没有判断是否已经硬链接过。**适合全新的没有硬链接过的目录**。
 
 ```
 #mklink.sh sourcedir dstdir
