@@ -8,8 +8,8 @@
 
 ## PT工具集合
 
-- [硬链接工具](https://github.com/appotry/PTtool/)
-- [flexget-nexusphp](https://github.com/appotry/flexget-nexusphp), Flexget插件，增强对NexusPHP的过滤
+- [硬链接工具](https://github.com/appotry/PTtool/) 自动硬链接工具
+- [flexget-nexusphp](https://github.com/appotry/flexget-nexusphp), 自动下载刷流工具。Flexget插件，增强对NexusPHP的过滤
 - [nas-tools](https://github.com/jxxghp/nas-tools) **新秀**，**国人**出的NAS媒体库资源自动搜刮整理工具，自动下载，刮削，支持PT刷流！中文支持较好。**注意**暂时功能不够完善，Bug较多，评价是试用，尝鲜，还不能胜任主力！
 - [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed) 自动辅种助手。**PT三剑客**
 - [PTPP](https://github.com/appotry/PT-Plugin-Plus) 浏览器辅种助手。**PT三剑客**
