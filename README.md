@@ -141,7 +141,7 @@ qBittorrent 下载完成时自动硬链接下载完的种子，适用于新下�
 if [[ "$torrent_category" == *"movies"* || "$torrent_category" == *"series"* || "$torrent_category" == *"documents"* || "$torrent_category" == *"operas"* ]]
 ```
 
-$torrent_category 是分类名称，也是目录名称！
+$torrent_category 是qBittorrent分类名称，也是目录名称！
 
 ## 注意事项
 
