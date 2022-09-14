@@ -138,7 +138,7 @@ qBittorrent 下载完成时自动硬链接下载完的种子，适用于新下�
 注意：填入autolink.sh的绝对位置，同时autolink与dirlink须在同一目录
 
 这个脚本使用，需要手动修改脚本中的分类，下面这一行！
-```
+```bash
 if [[ "$torrent_category" == *"movies"* || "$torrent_category" == *"series"* || "$torrent_category" == *"documents"* || "$torrent_category" == *"operas"* ]]
 ```
 
