@@ -20,6 +20,7 @@
 - [flexget qbittorrent删种、辅种 自动签到 插件](https://github.com/appotry/flexget_qbittorrent_mod)
 - [自动发种机](https://github.com/dongshuyan/Auto_Upload) 全自动将本地资源发布到PT站并自动辅种  
 - [qBittorrent rss订阅规则管理](https://github.com/Nriver/qb-rss-manager)
+- [Mkv Auto Subset](https://github.com/MkvAutoSubset/MkvAutoSubset) ASS字幕字体子集化 MKV批量提取/生成
 
 ## 相关教程
 
