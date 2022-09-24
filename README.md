@@ -21,6 +21,8 @@
 - [自动发种机](https://github.com/dongshuyan/Auto_Upload) 全自动将本地资源发布到PT站并自动辅种  
 - [qBittorrent rss订阅规则管理](https://github.com/Nriver/qb-rss-manager)
 - [Mkv Auto Subset](https://github.com/MkvAutoSubset/MkvAutoSubset) ASS字幕字体子集化 MKV批量提取/生成
+- [jproxy](https://github.com/LuckyPuppy514/jproxy) 优化 Sonarr 对资源的识别率，主要是针对动漫
+- [xarr-rss](https://xarr-doc.52nyg.com/xarr-rss/#/) 剧情Rss订阅处理器 目前非开源？
 
 ## 相关教程
 
@@ -33,6 +35,16 @@
 
 - 点击放大
 [![框架自动化构架图解](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)](https://cimg1.17lai.site/data/2022/05/09/20220509113832.webp)
+
+```mermaid
+graph LR
+    1[Sonarr] == request Jackett / Prowlarr Torznab api ==> 2(JProxy) == proxy Sonarr request ==> 3(Jackett / Prowlarr) 
+    3(Jackett / Prowlarr) == return ==> 2(JProxy) == return result after format ==> 1(Sonarr)
+    
+    2(JProxy) == replace search key ==> 2(JProxy)
+    2(JProxy) == format result title ==> 2(JProxy)
+```
+jproxy 使用图解
 
 ## 硬链接工具
 
