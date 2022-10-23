@@ -18,11 +18,14 @@
 - [一键转种脚本](https://github.com/appotry/easy-upload)
 - [PT自动签到 Github Action 版](https://github.com/appotry/PT_signin)
 - [flexget qbittorrent删种、辅种 自动签到 插件](https://github.com/appotry/flexget_qbittorrent_mod)
-- [自动发种机](https://github.com/dongshuyan/Auto_Upload) 全自动将本地资源发布到PT站并自动辅种  
+- [自动发种机](https://github.com/dongshuyan/Auto_Upload) 全自动将本地资源发布到 PT 站并自动辅种  
+- [自动将本地资源发布到PT站](https://github.com/dongshuyan/Upload_Machine) 看简介比 Auto_Upload 功能更强大
 - [qBittorrent rss订阅规则管理](https://github.com/Nriver/qb-rss-manager)
 - [Mkv Auto Subset](https://github.com/MkvAutoSubset/MkvAutoSubset) ASS字幕字体子集化 MKV批量提取/生成
 - [jproxy](https://github.com/LuckyPuppy514/jproxy) 优化 Sonarr 对资源的识别率，主要是针对动漫
 - [xarr-rss](https://xarr-doc.52nyg.com/xarr-rss/#/) 剧情Rss订阅处理器 目前非开源？
+- [pter 猫站使用脚本集合](https://github.com/inerfire/pter_scripts)
+
 
 ## 相关教程
 
