@@ -15,7 +15,7 @@
 - [PTPP](https://github.com/appotry/PT-Plugin-Plus) 浏览器辅种助手。**PT三剑客**
 - [pt_helper](https://hub.docker.com/r/crazyq/pt_helper), **非开源软件** 自动刷流与签到。**PT三剑客** [nas-tools](https://github.com/jxxghp/nas-tools)可以替代刷流
 - [PT站生成海报墙](https://github.com/appotry/universal-torrent-gallery)
-- [一键转种脚本](https://github.com/appotry/easy-upload)
+- [一键转种脚本](https://github.com/appotry/easy-upload) PT一键转种脚本（树大版）
 - [PT自动签到 Github Action 版](https://github.com/appotry/PT_signin)
 - [flexget qbittorrent删种、辅种 自动签到 插件](https://github.com/appotry/flexget_qbittorrent_mod)
 - [自动发种机](https://github.com/dongshuyan/Auto_Upload) 全自动将本地资源发布到 PT 站并自动辅种  
