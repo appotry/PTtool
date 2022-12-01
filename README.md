@@ -25,6 +25,7 @@
 - [jproxy](https://github.com/LuckyPuppy514/jproxy) 优化 Sonarr 对资源的识别率，主要是针对动漫
 - [xarr-rss](https://xarr-doc.52nyg.com/xarr-rss/#/) 剧情Rss订阅处理器 目前非开源？
 - [pter 猫站使用脚本集合](https://github.com/inerfire/pter_scripts)
+- [auto-bangumi 基于Mikan Project的中文自动追番解决方案](https://github.com/EstrellaXD/Auto_Bangumi) 解决中文自动追番痛点
 
 
 ## 相关教程
