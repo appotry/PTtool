@@ -26,7 +26,7 @@
 - [xarr-rss](https://xarr-doc.52nyg.com/xarr-rss/#/) 剧情Rss订阅处理器 目前非开源？
 - [pter 猫站使用脚本集合](https://github.com/inerfire/pter_scripts)
 - [auto-bangumi 基于Mikan Project的中文自动追番解决方案](https://github.com/EstrellaXD/Auto_Bangumi) 解决中文自动追番痛点
-- [BangumiBot](https://github.com/RanKKI/BangumiBot) 类似auto-bangumi的工具，只是auto-bangumi支持Qbittorrent，BangumiBot支持Aria2/Tr
+- [BangumiBot](https://github.com/RanKKI/BangumiBot) 类似auto-bangumi的中文自动追番工具，只是auto-bangumi支持Qbittorrent，BangumiBot支持Aria2/Tr
 
 
 ## 相关教程
