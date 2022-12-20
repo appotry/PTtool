@@ -34,6 +34,8 @@
 - [视频图书和音乐完全自动化管理框架图解](https://blog.17lai.site/posts/db7bf49b/)
 - [如何使用tinyMediaManager刮削电影和电视剧，动画，并自动下载字幕](https://blog.17lai.site/posts/e6d40157/)
 - [使用jeckett,sonarr,iyuu,qt,emby打造全自动追剧流程](https://blog.17lai.site/posts/9912bd5d/)
+- [qBittorrent 参数详细设置教程](https://blog.17lai.site/posts/f6b32521/)
+- [transmission 使用及其配置](https://blog.17lai.site/posts/8f76d9dd/)
 > nastools目前看来还只是个玩具，各种功能bug较多，完成度大概只有Sonarr, Radarr的三分之一。要搭建一个稳定，可用的自动多媒体管理工具，还是需要使用Radarr, Sonarr，Nastools等1年再看
 
 ### 框架自动化构架图解
