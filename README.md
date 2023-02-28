@@ -27,6 +27,7 @@
 - [pter 猫站使用脚本集合](https://github.com/inerfire/pter_scripts)
 - [auto-bangumi 基于Mikan Project的中文自动追番解决方案](https://github.com/EstrellaXD/Auto_Bangumi) 解决中文自动追番痛点
 - [BangumiBot](https://github.com/RanKKI/BangumiBot) 类似auto-bangumi的中文自动追番工具，只是auto-bangumi支持Qbittorrent，BangumiBot支持Aria2/Tr
+- [embyExternalUrl](https://github.com/bpking1/embyExternalUrl) Emby调用外部播放器播放视频，以使用本地解码能力
 
 
 ## 相关教程
