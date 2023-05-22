@@ -11,6 +11,7 @@
 - [硬链接工具](https://github.com/appotry/PTtool/) 自动硬链接工具
 - [flexget-nexusphp](https://github.com/appotry/flexget-nexusphp), 自动下载刷流工具。Flexget插件，增强对NexusPHP的过滤
 - [nas-tools](https://github.com/nastool/nas-tools) [源码备份](https://github.com/wangyan/nas-tools)，**已经闭源了**！后续路线就是收费了，**国人**出的NAS媒体库资源自动搜刮整理工具，自动下载，刮削，支持PT刷流！中文支持较好。**注意**暂时功能不够完善，Bug较多，评价是试用，尝鲜，还不能胜任主力！已经闭源，建议切换到Sonarr，radarr，flexget。
+- [PTools](https://github.com/ngfchl/ptools) 一个新的自动签到，种子推送工具，刚出来，可以关注
 - [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed) 自动辅种助手。**PT三剑客**
 - [PTPP](https://github.com/appotry/PT-Plugin-Plus) 浏览器辅种助手。**PT三剑客**
 - [pt_helper](https://hub.docker.com/r/crazyq/pt_helper), **非开源软件** 自动刷流与签到。**PT三剑客** [nas-tools](https://github.com/jxxghp/nas-tools)可以替代刷流
