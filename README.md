@@ -10,7 +10,7 @@
 
 - [硬链接工具](https://github.com/appotry/PTtool/) 自动硬链接工具
 - [flexget-nexusphp](https://github.com/appotry/flexget-nexusphp), 自动下载刷流工具。Flexget插件，增强对NexusPHP的过滤
-- [nas-tools](https://github.com/nastool/nas-tools) **新秀**，**国人**出的NAS媒体库资源自动搜刮整理工具，自动下载，刮削，支持PT刷流！中文支持较好。**注意**暂时功能不够完善，Bug较多，评价是试用，尝鲜，还不能胜任主力！
+- [nas-tools](https://github.com/nastool/nas-tools) **已经闭源了**！后续路线就是收费了，**国人**出的NAS媒体库资源自动搜刮整理工具，自动下载，刮削，支持PT刷流！中文支持较好。**注意**暂时功能不够完善，Bug较多，评价是试用，尝鲜，还不能胜任主力！已经闭源，建议切换到Sonarr，radarr，flexget。[源码备份](https://github.com/wangyan/nas-tools)
 - [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed) 自动辅种助手。**PT三剑客**
 - [PTPP](https://github.com/appotry/PT-Plugin-Plus) 浏览器辅种助手。**PT三剑客**
 - [pt_helper](https://hub.docker.com/r/crazyq/pt_helper), **非开源软件** 自动刷流与签到。**PT三剑客** [nas-tools](https://github.com/jxxghp/nas-tools)可以替代刷流
@@ -37,7 +37,6 @@
 - [使用jeckett,sonarr,iyuu,qt,emby打造全自动追剧流程](https://blog.17lai.site/posts/9912bd5d/)
 - [qBittorrent 参数详细设置教程](https://blog.17lai.site/posts/f6b32521/)
 - [transmission 使用及其配置](https://blog.17lai.site/posts/8f76d9dd/)
-> nastools目前看来还只是个玩具，各种功能bug较多，完成度大概只有Sonarr, Radarr的三分之一。要搭建一个稳定，可用的自动多媒体管理工具，还是需要使用Radarr, Sonarr，Nastools等1年再看
 
 ### 框架自动化构架图解
 
@@ -177,8 +176,11 @@ FILEGIG=2000000c
 如果要计算具体的字节大小，可以使用以下转换关系：
 
 1 字节（Byte）= 8 比特（Bit）
+
 1 千字节（KB）= 1024 字节
+
 1 兆字节（MB）= 1024 KB
+
 1 吉字节（GB）= 1024 MB
 
 因此，如果要查找大于 10MB 的文件，可以使用 -size +10M，如果要查找大于 100MB 的文件，可以使用 -size +100M。
