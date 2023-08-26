@@ -35,12 +35,15 @@
 
 ## 相关教程
 
+- [从零开始玩PT-入门到精通](https://blog.17lai.site/posts/9806d7f1/)
+- [如何建立自己的私人电子图书馆–出版书籍，网络小说，漫画一网打尽!](https://blog.17lai.site/posts/dc1c8194/)
 - [视频图书和音乐完全自动化管理框架图解](https://blog.17lai.site/posts/db7bf49b/)
 - [如何使用tinyMediaManager刮削电影和电视剧，动画，并自动下载字幕](https://blog.17lai.site/posts/e6d40157/)
 - [使用jeckett,sonarr,iyuu,qt,emby打造全自动追剧流程](https://blog.17lai.site/posts/9912bd5d/)
 - [如何建立自己的私人电子图书馆--出版书籍，网络小说，漫画一网打尽!](https://blog.17lai.site/posts/dc1c8194/)
 - [qBittorrent 参数详细设置教程](https://blog.17lai.site/posts/f6b32521/)
 - [transmission 使用及其配置](https://blog.17lai.site/posts/8f76d9dd/)
+- [Potplayer终极优化教程实现PC视频播放最强画质](https://blog.17lai.site/posts/2f8fb473/)
 
 ### 框架自动化构架图解
 
