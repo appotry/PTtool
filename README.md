@@ -12,6 +12,7 @@
 - [flexget-nexusphp](https://github.com/appotry/flexget-nexusphp), 自动下载刷流工具。Flexget插件，增强对NexusPHP的过滤
 - [nas-tools](https://github.com/nastool/nas-tools) [源码备份](https://github.com/wangyan/nas-tools)，**已经停止开发**！**注意**暂时功能不够完善，Bug较多，评价是试用，尝鲜，还不能胜任主力！后续Bug得不到修正，强烈建议切换到Sonarr，radarr，flexget。
 - [MoviePilot](https://github.com/jxxghp/MoviePilot) nas-tools 作者重构项目，提升了速度，在功能，bug稳定性方面还待提升。可以提前试用
+- [vertex](https://github.com/vertex-app/vertex) 适用于 PT 玩家的追剧刷流一体化综合管理工具 [使用说明Wiki](https://wiki.vertex.icu/zh/home)
 - [PTools](https://github.com/ngfchl/ptools) 一个新的自动签到，种子推送工具，刚出来，可以关注
 - [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed) 自动辅种助手。**PT三剑客**
 - [PTPP](https://github.com/appotry/PT-Plugin-Plus) 浏览器辅种助手。**PT三剑客**
