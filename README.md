@@ -32,6 +32,7 @@
 - [BangumiBot](https://github.com/RanKKI/BangumiBot) 类似auto-bangumi的中文自动追番工具，只是auto-bangumi支持Qbittorrent，BangumiBot支持Aria2/Tr
 - [embyExternalUrl](https://github.com/bpking1/embyExternalUrl) Emby调用外部播放器播放视频，以使用本地解码能力
 - [subtitle-translator-electron](https://github.com/gnehs/subtitle-translator-electron) Translate subtitle using ChatGPT，使用ChatGPT翻译字幕
+- [ani-rss](https://github.com/wushuo894/ani-rss) 解决了不少 AutoBangumi 的痛点问题的追番工具
 
 
 ## 相关教程
