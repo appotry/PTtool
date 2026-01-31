@@ -14,6 +14,7 @@
 - [MoviePilot](https://github.com/jxxghp/MoviePilot) nas-tools 作者重构项目，**核心闭源** 提升了速度，在功能，bug稳定性方面还待提升。可以提前试用
 - [vertex](https://github.com/vertex-app/vertex) 适用于 PT 玩家的追剧刷流一体化综合管理工具 [使用说明Wiki](https://wiki.vertex.icu/zh/home)
 - [PTools](https://github.com/ngfchl/ptools) 一个新的自动签到，种子推送工具，刚出来，可以关注
+- [pt-tools](https://github.com/sunerpy/pt-tools) 刷流神器pt-tools,多站点+多下载器+免费种子
 - [IYUUAutoReseed](https://github.com/appotry/IYUUAutoReseed) 自动辅种助手。**PT三剑客**
 - [PTPP](https://github.com/appotry/PT-Plugin-Plus) 浏览器辅种助手。**PT三剑客**
 - [pt_helper](https://hub.docker.com/r/crazyq/pt_helper), **非开源软件** 自动刷流与签到。**PT三剑客** [nas-tools](https://github.com/jxxghp/nas-tools)可以替代刷流
