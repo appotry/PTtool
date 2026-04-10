@@ -34,6 +34,7 @@
 - [embyExternalUrl](https://github.com/bpking1/embyExternalUrl) Emby调用外部播放器播放视频，以使用本地解码能力
 - [subtitle-translator-electron](https://github.com/gnehs/subtitle-translator-electron) Translate subtitle using ChatGPT，使用ChatGPT翻译字幕
 - [ani-rss](https://github.com/wushuo894/ani-rss) **日番追番神器**，推荐，解决了不少 AutoBangumi 的痛点问题的追番工具
+- [bgmi](https://github.com/codysk/bgmi-docker-all-in-one) 又一个**日番追番神器**
 - [pt_mate](https://github.com/JustLookAtNow/pt_mate/) 基于 Flutter（Material Design 3）开发的私有种子站点客户端，支持多种PT站点的种子浏览、搜索和下载管理。目前支持M-Team和NexusPHP类型的站点。
 
 
