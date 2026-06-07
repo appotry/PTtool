@@ -3,3 +3,5 @@ __pycache__/
 *.pyo
 .*.swp
 *.log
+# 本地 Docker 测试镜像缓存
+tests/.checksums/

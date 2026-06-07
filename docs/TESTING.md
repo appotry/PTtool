@@ -22,52 +22,46 @@ alpine:3.21  (基础镜像，使用 Busybox ash)
       └── tests/verify_nas.sh
 ```
 
-### 构建方法
+### 镜像维护体系
 
-```bash
-# 完整测试环境（含 dash 严格 POSIX 验证）
-docker build -t pttool-test -f- . <<'DOCKERFILE'
-FROM alpine:3.21
-RUN apk add --no-cache dash coreutils
-COPY tests/test_suite.sh /test_suite.sh
-RUN chmod +x /test_suite.sh
-ENTRYPOINT ["/bin/sh", "/test_suite.sh"]
-DOCKERFILE
+测试镜像采用 **本地缓存 + MD5 校验** 维护，避免每次测试都联网构建。
 
-# NAS 仿真测试（纯 Busybox ash，无额外工具）
-docker build -t pttool-nas -f- . <<'DOCKERFILE'
-FROM alpine:3.21
-COPY tests/verify_nas.sh /verify_nas.sh
-RUN chmod +x /verify_nas.sh
-ENTRYPOINT ["/bin/sh", "/verify_nas.sh"]
-DOCKERFILE
+```
+tests/
+├── Makefile                   # 入口：build/rebuild/test/clean/list
+├── docker/
+│   ├── test_suite.Dockerfile  # 完整测试镜像定义
+│   └── verify_nas.Dockerfile  # NAS 仿真镜像定义
+├── .checksums/                # MD5 校验和（自动管理）
+├── test_suite.sh
+└── verify_nas.sh
 ```
 
-### 运行方法
+### 运行方法（推荐）
 
 ```bash
-# 完整测试套件
-docker run --rm -v "$PWD:/pttool:ro" pttool-test
+# 一键完整测试（自动按需构建，后续完全离线）
+cd tests && make test
 
 # NAS 兼容性验证
+cd tests && make test-nas
+
+# 查看本机构建缓存
+cd tests && make list
+```
+
+### 构建方法（备选）
+
+```bash
+# 完整测试环境
+docker build -t pttool-test -f tests/docker/test_suite.Dockerfile .
+
+# NAS 仿真测试环境
+docker build -t pttool-nas -f tests/docker/verify_nas.Dockerfile .
+
+# 运行
+docker run --rm -v "$PWD:/pttool:ro" pttool-test
 docker run --rm -v "$PWD:/pttool:ro" pttool-nas
-
-# 单容器快速验证（无需构建镜像）
-docker run --rm -v "$PWD:/pttool:ro" alpine:3.21 sh -c '
-  for f in /pttool/*.sh; do
-    sh -n "$f" && echo "  ✓ $f" || echo "  ✗ $f"
-  done
-'
-
-# 多 shell 对比验证
-for img in alpine:3.21 debian:bookworm-slim; do
-  echo "=== $img ==="
-  docker run --rm -v "$PWD:/pttool:ro" "$img" sh -c '
-    for f in /pttool/*.sh; do
-      /bin/sh -n "$f" || echo "SYNTAX: $f"
-    done
-  '
-done
 ```
 
 ## 测试用例
