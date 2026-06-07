@@ -84,10 +84,9 @@ if [ ! -d "$SRC" ]; then
     echo "$MSG_ERR_SRC $SRC" >&2
     exit 2
 fi
-if [ ! -d "$DST" ]; then
-    echo "$MSG_ERR_DST $DST" >&2
-    exit 2
-fi
+mkdir -p "$DST" 2>/dev/null || {
+    echo "$MSG_ERR_DST $DST" >&2; exit 2
+}
 _src_dev=$(stat -c %d "$SRC" 2>/dev/null)
 _dst_dev=$(stat -c %d "$DST" 2>/dev/null)
 if [ "$_src_dev" ] && [ "$_dst_dev" ] && [ "$_src_dev" != "$_dst_dev" ]; then
