@@ -8,12 +8,13 @@ on:
 
 env:
   CI: true
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build test image
         run: >
@@ -27,7 +28,7 @@ jobs:
   test-nas:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build NAS simulation image
         run: >
