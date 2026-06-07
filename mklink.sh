@@ -27,6 +27,9 @@ case "$_lang" in en*)
   MSG_CP_L="cp -l"
   MSG_CP="cp"
   MSG_SEP="--"
+  MSG_ERR_SRC="Error: SRC does not exist:"
+  MSG_ERR_DST="Error: cannot create DST:"
+  MSG_ERR_FS="Error: SRC and DST must be on same filesystem (hardlink constraint)"
   ;;
 *)
   # Chinese messages / 中文消息
@@ -44,6 +47,9 @@ case "$_lang" in en*)
   MSG_CP_L="cp -l"
   MSG_CP="cp"
   MSG_SEP="--"
+  MSG_ERR_SRC="错误：源目录不存在："
+  MSG_ERR_DST="错误：无法创建目标目录："
+  MSG_ERR_FS="错误：源目录和目标目录必须在同一文件系统（硬链接限制）"
   ;;
 esac
 
@@ -71,6 +77,22 @@ else
     echo "$MSG_SRC_LABEL$SRC"
     echo "$MSG_DST_LABEL$DST"
     exit 1
+fi
+
+# 检查目录有效性 + 跨文件系统 / Validate directories + check filesystem
+if [ ! -d "$SRC" ]; then
+    echo "$MSG_ERR_SRC $SRC" >&2
+    exit 2
+fi
+if [ ! -d "$DST" ]; then
+    echo "$MSG_ERR_DST $DST" >&2
+    exit 2
+fi
+_src_dev=$(stat -c %d "$SRC" 2>/dev/null)
+_dst_dev=$(stat -c %d "$DST" 2>/dev/null)
+if [ "$_src_dev" ] && [ "$_dst_dev" ] && [ "$_src_dev" != "$_dst_dev" ]; then
+    echo "$MSG_ERR_FS" >&2
+    exit 2
 fi
 
 # 大于阈值（默认 1MB）→ 硬链接

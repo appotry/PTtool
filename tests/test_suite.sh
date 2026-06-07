@@ -120,6 +120,7 @@ test_autothanks() {
 # === 测试用例: TC-RENAME ===
 # rename_episodes.py 正确计算 SXXEXX 偏移
 test_rename() {
+    command -v python3 >/dev/null 2>&1 || { echo "  SKIP: python3 not found" >&2; return 0; }
     rm -rf /tmp/t_rename
     mkdir -p /tmp/t_rename
     touch "/tmp/t_rename/Show S01E01.mkv"
@@ -135,6 +136,7 @@ test_rename() {
 # === 测试用例: TC-I18N (Python) ===
 # rename_episodes.py 的 SCRIPT_LANG 切换
 test_rename_i18n() {
+    command -v python3 >/dev/null 2>&1 || { echo "  SKIP: python3 not found" >&2; return 0; }
     rm -rf /tmp/t_rename_i18n
     mkdir -p /tmp/t_rename_i18n
     touch "/tmp/t_rename_i18n/T S01E01.mkv"

@@ -19,12 +19,18 @@ case "$_lang" in en*)
   MSG_SKIP_DIR="Skip dir:"
   MSG_LINK_DIR="Current lnk dir:"
   MSG_ALREADY_LINKED="already linked, skip"
+  MSG_ERR_SRC="Error: SRC does not exist:"
+  MSG_ERR_DST="Error: cannot create DST:"
+  MSG_ERR_FS="Error: SRC and DST must be on same filesystem (hardlink constraint)"
   ;;
 *)
   # Chinese messages / 中文消息
   MSG_SKIP_DIR="跳过处理目录:"
   MSG_LINK_DIR="当前硬链接目录"
   MSG_ALREADY_LINKED="已经硬链接过，跳过此目录"
+  MSG_ERR_SRC="错误：源目录不存在："
+  MSG_ERR_DST="错误：无法创建目标目录："
+  MSG_ERR_FS="错误：源目录和目标目录必须在同一文件系统（硬链接限制）"
   ;;
 esac
 
@@ -129,6 +135,22 @@ else
     echo "$MSG_DEF_SET"
     echo "$MSG_SRC_LABEL$SRC"
     echo "$MSG_DST_LABEL$DST"
+fi
+
+# 检查 SRC 有效性 + 跨文件系统 / Validate SRC + check cross-filesystem
+if [ ! -d "$SRC" ]; then
+    echo "$MSG_ERR_SRC $SRC" >&2
+    exit 2
+fi
+# 自动创建 DST 目录 / Auto-create DST directory
+mkdir -p "$DST" 2>/dev/null || {
+    echo "$MSG_ERR_DST $DST" >&2; exit 2
+}
+_src_dev=$(stat -c %d "$SRC" 2>/dev/null)
+_dst_dev=$(stat -c %d "$DST" 2>/dev/null)
+if [ "$_src_dev" ] && [ "$_dst_dev" ] && [ "$_src_dev" != "$_dst_dev" ]; then
+    echo "$MSG_ERR_FS" >&2
+    exit 2
 fi
 
 # 遍历源目录下的子目录，逐个子目录执行硬链接
