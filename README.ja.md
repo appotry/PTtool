@@ -4,7 +4,7 @@
 >
 > 純 Shell / Python ハードリンクツール。Linux、BSD、macOS、Synology、QNAP など、標準 POSIX シェル対応の OS で動作します。
 >
-> **[中文](README.md)** · **[English](README.en.md)**
+> **[中文](README.md)** · **[English](README.en.md)** · **[한국어](README.ko.md)** · **[Español](README.es.md)** · **[Deutsch](README.de.md)** · **[Français](README.fr.md)** · **[繁體中文](README.zh-TW.md)**
 
 [![opencode](https://img.shields.io/badge/リファクタリング-opencode-6A0DAD)](https://opencode.ai)
 [![CI](https://github.com/appotry/PTtool/actions/workflows/test.yml/badge.svg)](https://github.com/appotry/PTtool/actions/workflows/test.yml)

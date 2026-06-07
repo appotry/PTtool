@@ -9,6 +9,11 @@
 | 简体中文 | `README.md` | @appotry |
 | English | `README.en.md` | @appotry |
 | 日本語 | `README.ja.md` | — |
+| 한국어 | `README.ko.md` | — |
+| Español | `README.es.md` | — |
+| Deutsch | `README.de.md` | — |
+| Français | `README.fr.md` | — |
+| 繁體中文 | `README.zh-TW.md` | — |
 
 ## 如何贡献新翻译
 

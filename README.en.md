@@ -4,7 +4,7 @@
 >
 > Pure Shell / Python hardlink tools. Works on Linux, BSD, macOS, Synology, QNAP and any OS with a standard POSIX shell.
 >
-> **[中文](README.md)** · **[日本語](README.ja.md)**
+> **[中文](README.md)** · **[日本語](README.ja.md)** · **[한국어](README.ko.md)** · **[Español](README.es.md)** · **[Deutsch](README.de.md)** · **[Français](README.fr.md)** · **[繁體中文](README.zh-TW.md)**
 >
 > [![opencode](https://img.shields.io/badge/Refactored%20with-opencode-6A0DAD)](https://opencode.ai)
 > [![CI](https://github.com/appotry/PTtool/actions/workflows/test.yml/badge.svg)](https://github.com/appotry/PTtool/actions/workflows/test.yml)

@@ -4,7 +4,7 @@
 >
 > 纯 Shell / Python 硬链接工具！支持 Linux、BSD、Mac、**群辉**、**威联通**等支持标准 Shell 的操作系统。
 >
-> **[English](README.en.md)** · **[日本語](README.ja.md)**
+> **[English](README.en.md)** · **[日本語](README.ja.md)** · **[한국어](README.ko.md)** · **[Español](README.es.md)** · **[Deutsch](README.de.md)** · **[Français](README.fr.md)** · **[繁體中文](README.zh-TW.md)**
 >
 > [![opencode](https://img.shields.io/badge/重构-opencode-6A0DAD)](https://opencode.ai)
 > [![CI](https://github.com/appotry/PTtool/actions/workflows/test.yml/badge.svg)](https://github.com/appotry/PTtool/actions/workflows/test.yml)
