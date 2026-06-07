@@ -13,7 +13,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build test image
         run: docker build -t pttool-test \
@@ -25,7 +25,7 @@ jobs:
   test-nas:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build NAS simulation image
         run: docker build -t pttool-nas \
