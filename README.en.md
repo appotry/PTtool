@@ -4,7 +4,14 @@
 >
 > Pure Shell / Python hardlink tools. Works on Linux, BSD, macOS, Synology, QNAP and any OS with a standard POSIX shell.
 >
-> **[中文](README.md)** — Chinese documentation
+> **[中文](README.md)** · **[日本語](README.ja.md)**
+>
+> [![opencode](https://img.shields.io/badge/Refactored%20with-opencode-6A0DAD)](https://opencode.ai)
+> [![CI](https://github.com/appotry/PTtool/actions/workflows/test.yml/badge.svg)](https://github.com/appotry/PTtool/actions/workflows/test.yml)
+
+---
+
+This project was fully refactored with [opencode](https://opencode.ai), implementing an **AI Agent-driven dev-test loop**: requirements → architecture → coding → Docker testing → knowledge base archiving, all completed autonomously by the Agent. See [`AGENTS.md`](AGENTS.md) and [`docs/`](docs/).
 
 ---
 

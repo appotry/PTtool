@@ -4,7 +4,14 @@
 >
 > 纯 Shell / Python 硬链接工具！支持 Linux、BSD、Mac、**群辉**、**威联通**等支持标准 Shell 的操作系统。
 >
-> **[English](README.en.md)** — English documentation
+> **[English](README.en.md)** · **[日本語](README.ja.md)**
+>
+> [![opencode](https://img.shields.io/badge/重构-opencode-6A0DAD)](https://opencode.ai)
+> [![CI](https://github.com/appotry/PTtool/actions/workflows/test.yml/badge.svg)](https://github.com/appotry/PTtool/actions/workflows/test.yml)
+
+---
+
+本项目采用 [opencode](https://opencode.ai) 全程重构，实现 **AI Agent 驱动的开发-测试闭环**：需求→架构→编码→Docker 测试→经验入库，全部由 Agent 自主完成。详见 [`AGENTS.md`](AGENTS.md) 和 [`docs/`](docs/)。
 
 ---
 
