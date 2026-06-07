@@ -13,6 +13,14 @@ PROJ  := $(CURDIR)/..
 TEST_IMG := pttool-test
 NAS_IMG  := pttool-nas
 
+# 构建参数（本地用阿里云镜像加速，CI 环境用默认仓库）
+ifeq ($(CI),true)
+APK_MIRROR := dl-cdn.alpinelinux.org
+else
+APK_MIRROR ?= mirrors.aliyun.com
+endif
+BUILD_ARGS := --build-arg APK_MIRROR=$(APK_MIRROR)
+
 # 依赖文件列表（变更时触发重建）
 TEST_DEPS := docker/test_suite.Dockerfile test_suite.sh
 NAS_DEPS  := docker/verify_nas.Dockerfile verify_nas.sh
@@ -57,9 +65,9 @@ _build:
 		echo "  ✓ $(NAME): 缓存命中 ($$SHORT)"; \
 	else \
 		echo "  ▶ $(NAME): 构建中..."; \
-		docker build -t $(NAME) -f $(DOCKERFILE) $(PROJ) 2>&1 | tail -1; \
+		docker build $(BUILD_ARGS) -t $(NAME) -f $(DOCKERFILE) $(PROJ) 2>&1 | tail -1; \
 		echo "$$CKSUM" > $(CKSUM); \
-		echo "  ✓ $(NAME): 构建完成 ($$SHORT)"; \
+		echo "  ✓ $(NAME): 构建完成 ($$SHORT, 镜像: $(APK_MIRROR))"; \
 	fi
 
 # 强制重建

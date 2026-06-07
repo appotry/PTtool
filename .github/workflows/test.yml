@@ -1,0 +1,35 @@
+name: PTtool CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+env:
+  CI: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build test image
+        run: docker build -t pttool-test \
+          -f tests/docker/test_suite.Dockerfile .
+
+      - name: Run full test suite
+        run: docker run --rm -v "$PWD:/pttool:ro" pttool-test
+
+  test-nas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build NAS simulation image
+        run: docker build -t pttool-nas \
+          -f tests/docker/verify_nas.Dockerfile .
+
+      - name: Run NAS simulation test
+        run: docker run --rm -v "$PWD:/pttool:ro" pttool-nas
