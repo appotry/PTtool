@@ -1,153 +1,151 @@
-#!/bin/bash
-#auther: andycrusoe@gmail.com
-#记录日志: ./dirlink.sh > dirlink.log
-#使用说明: https://github.com/appotry/PTtool#readme
+#!/bin/sh
+# author / 作者: andycrusoe@gmail.com
+# 记录日志用法 / Log usage: ./dirlink.sh > dirlink.log
+# 使用说明 / Usage: https://github.com/appotry/PTtool#readme
 
-#查找文件硬链接
-#ls -ialh file.txt
-#find . -inum 1234
+# 查找文件硬链接的命令参考 / Commands to inspect hardlinks:
+# ls -ialh file.txt
+# find . -inum 1234
 
-#最后面不要加斜杠
+# 最后面不要加斜杠 / Do NOT add trailing slashes to paths below
 SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
 
+# --- i18n: output language selection / 输出语言选择 ---
+# SCRIPT_LANG=en_US → English, otherwise Chinese (default / 默认中文)
+_lang="${SCRIPT_LANG:-${LANG:-zh_CN}}"
+case "$_lang" in en*)
+  # English messages
+  MSG_SKIP_DIR="Skip dir:"
+  MSG_LINK_DIR="Current lnk dir:"
+  MSG_ALREADY_LINKED="already linked, skip"
+  ;;
+*)
+  # Chinese messages / 中文消息
+  MSG_SKIP_DIR="跳过处理目录:"
+  MSG_LINK_DIR="当前硬链接目录"
+  MSG_ALREADY_LINKED="已经硬链接过，跳过此目录"
+  ;;
+esac
+
+# Messages used in originals as English (unchanged in both languages)
+# 原版即英文的消息（中英文保持一致）
+MSG_USAGE_SHORT="Usage:dirlink.sh sourcedir dstdir"
+MSG_USER_SET="User set:"
+MSG_DEF_SET="use default set:"
+MSG_SRC_LABEL="src:"
+MSG_DST_LABEL="dst:"
+MSG_MKLINK_ECHO="mklink:"
+MSG_WORK="work:"
+MSG_TH_SRC_FILE="THISSRC file:"
+MSG_SRC_FILE="src file:"
+MSG_DST_FILE="dst file:"
+MSG_MKDIR="mkdir -p"
+MSG_CP_L="cp -l"
+MSG_CP="cp"
+MSG_SEP="--"
+MSG_SEP_EQ="=="
+MSG_WORK_DIR="work dir:"
+
+# 文件大小阈值 / File size threshold (default 1 MB)
 FILEGIG=1000000c
 
-SAVEIFS=$IFS
-IFS=$(echo -en "\n\b")
 ######################################
 
-
-function  mklink ()
+# 核心硬链接函数：将一个源目录中的文件硬链接/复制到目标目录
+# Core function: hardlink/copy all files from one source dir to one destination dir
+mklink()
 {
-    local THISSRC=$1
-    local THISDST=$2
+    THISSRC=$1
+    THISDST=$2
     echo "$*"
-    echo "mklink:"$THISSRC $THISDST
-    
-    #查找大于1M的文件，硬链接
-    for i in `find $THISSRC -size +$FILEGIG`
-    do
+    echo "$MSG_MKLINK_ECHO$THISSRC $THISDST"
 
-        echo "work:$i"
+    # 大于阈值（默认 1MB）→ 硬链接
+    # Files larger than threshold → hardlink
+    find "$THISSRC" -size +"$FILEGIG" 2>/dev/null | while IFS= read -r i; do
+        echo "$MSG_WORK$i"
 
-        if [ -d $i ]; then
-            echo "跳过处理目录:$i"
-            echo "--"
-            continue
-            else if [ -e $i ]; then
-            echo "THISSRC file:$i"
-            fi
-        fi
-        
-        #判断目录是否已经存在
-        tmppth=`dirname $i`
-        pth=${tmppth/"$THISSRC"/"$THISDST"}
-        if [ ! -d $pth ]; then
-            echo "mkdir -p $pth"
-            mkdir -p $pth
-        #else
-        #    echo "跳过处理目录:$i"
-        #    echo "--"
-        #    continue
-        fi
-        
-        dstfile=$pth/`basename $i`
-        echo "dst file:${dstfile}"
-        
-        #判断文件是否已经存在
-        #不存在才复制
-        if [ ! -f $dstfile ]; then
-          echo "cp -l $i $dstfile"
-          cp -l $i $dstfile
-        fi
-        
-        echo "--"
+        [ -d "$i" ] && { echo "$MSG_SKIP_DIR$i"; echo "$MSG_SEP"; continue; }
 
+        tmppth=$(dirname "$i")
+        pth=$(echo "$tmppth" | sed "s|$THISSRC|$THISDST|")
+
+        if [ ! -d "$pth" ]; then
+            echo "$MSG_MKDIR $pth"
+            mkdir -p "$pth"
+        fi
+
+        dstfile="$pth"/$(basename "$i")
+        echo "$MSG_DST_FILE$dstfile"
+
+        if [ ! -f "$dstfile" ]; then
+          echo "$MSG_CP_L $i $dstfile"
+          cp -l "$i" "$dstfile"
+        fi
+
+        echo "$MSG_SEP"
     done
 
+    # 小于阈值（默认 1MB）→ 复制
+    # Files smaller than threshold → copy
+    find "$THISSRC" -size -"$FILEGIG" 2>/dev/null | while IFS= read -r i; do
+        echo "$MSG_WORK$i"
 
+        [ -d "$i" ] && { echo "$MSG_SKIP_DIR$i"; echo "$MSG_SEP"; continue; }
 
-    #查找小于1M的文件，复制小于1m的文件
-    for i in `find $THISSRC -size -$FILEGIG`
-    do
+        tmppth=$(dirname "$i")
+        pth=$(echo "$tmppth" | sed "s|$THISSRC|$THISDST|")
 
-        echo "work:$i"
-
-        if [ -d $i ]; then
-            echo "跳过处理目录:$i"
-            echo "--"
-            continue
-            else if [ -e $i ]; then
-            echo "src file:$i"
-            fi
+        if [ ! -d "$pth" ]; then
+          echo "$MSG_MKDIR $pth"
+          mkdir -p "$pth"
         fi
-        
-        #判断目录是否已经存在
-        tmppth=`dirname $i`
-        pth=${tmppth/"$THISSRC"/"$THISDST"}
-        if [ ! -d $pth ]; then
-          echo "mkdir -p $pth"
-          mkdir -p $pth
-        fi
-        
-        dstfile=$pth/`basename $i`
-        echo "dst file:${dstfile}"
-        
-        #判断文件是否已经存在
-        #不存在才复制
-        if [ ! -f $dstfile ]; then
-          echo "cp $i $dstfile"
-          cp $i $dstfile
-        fi
-        
-        echo "--"
 
+        dstfile="$pth"/$(basename "$i")
+        echo "$MSG_DST_FILE$dstfile"
+
+        if [ ! -f "$dstfile" ]; then
+          echo "$MSG_CP $i $dstfile"
+          cp "$i" "$dstfile"
+        fi
+
+        echo "$MSG_SEP"
     done
 
     return 0
 }
 
-function servicectl_usage(){
-  echo "Usage:dirlink.sh sourcedir dstdir"
-  return 1 
-}
-
-function servicectl(){
-[[ -z $1 || -z $2 ]] && servicectl_usage
-}
-
+# 参数处理：如果给了 2 个参数就用用户指定的目录，否则显示默认目录
+# Argument handling: if 2 args, use them; otherwise show defaults
 if [ $# -eq 2 ]; then
     SRC=$1
     DST=$2
-    echo "User set:"
-    echo "src:$SRC"
-    echo "dst:$DST"
+    echo "$MSG_USER_SET"
+    echo "$MSG_SRC_LABEL$SRC"
+    echo "$MSG_DST_LABEL$DST"
 else
-    servicectl_usage
-    echo "use default set:"
-    echo "源目录src:$SRC"
-    echo "目的目录dst:$DST"
+    echo "$MSG_USAGE_SHORT"
+    echo "$MSG_DEF_SET"
+    echo "$MSG_SRC_LABEL$SRC"
+    echo "$MSG_DST_LABEL$DST"
 fi
 
-for dir in $(ls $SRC)
-do
-    echo "work dir:$dir"
-    
-    dstdir=$DST/$dir
-    echo "当前硬链接目录"$dstdir
-    
-    #if [ ! -d $dstdir ]; then
-        if [ ! -e $SRC/$dir/islinked.lk ]; then
-            mklink "$SRC/$dir"  "$dstdir" 
-            touch "$SRC/$dir"/islinked.lk
-            echo "=="
-        else
-            echo "$dir 已经硬链接过，跳过此目录"
-            echo "=="
-        fi
-    #fi
-    
-done
+# 遍历源目录下的子目录，逐个子目录执行硬链接
+# Iterate over subdirectories and process each one
+find "$SRC" -maxdepth 1 -mindepth 1 -type d 2>/dev/null | while IFS= read -r dir; do
+    _dir=$(basename "$dir")
+    echo "$MSG_WORK_DIR$_dir"
 
-IFS=$SAVEIFS
+    dstdir=$DST/$_dir
+    echo "$MSG_LINK_DIR$dstdir"
+
+    if [ ! -e "$dir/islinked.lk" ]; then
+        mklink "$dir" "$dstdir"
+        touch "$dir"/islinked.lk
+        echo "$MSG_SEP_EQ"
+    else
+        echo "$_dir $MSG_ALREADY_LINKED"
+        echo "$MSG_SEP_EQ"
+    fi
+done

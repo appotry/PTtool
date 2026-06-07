@@ -1,122 +1,130 @@
 #!/bin/sh
-#auther: andycrusoe@gmail.com
-#使用说明:https://github.com/appotry/PTtool#readme
-#结合du -b可以得到性能更快更好的版本，目前这个可用，先这样了
+# author / 作者: andycrusoe@gmail.com
+# 使用说明 / Usage: https://github.com/appotry/PTtool#readme
+# 结合 du -b 可以得到性能更快更好的版本，目前先用这个
+# This version works but can be optimized with du -b for better performance
 
+# 查找文件硬链接的命令参考 / Commands to inspect hardlinks:
+# ls -ialh file.txt
+# find . -inum 1234
 
-#查找文件硬链接
-#ls -ialh file.txt
-#find . -inum 1234
+# --- i18n: output language selection / 输出语言选择 ---
+# SCRIPT_LANG=en_US → English, otherwise Chinese (default / 默认中文)
+_lang="${SCRIPT_LANG:-${LANG:-zh_CN}}"
+case "$_lang" in en*)
+  # English messages
+  MSG_USAGE_SHORT="Usage: mklink.sh sourcedir dstdir"
+  MSG_USER_SET="User set:"
+  MSG_DEF_SET="use default set:"
+  MSG_SRC_LABEL="src:"
+  MSG_DST_LABEL="dst:"
+  MSG_WORK="work:"
+  MSG_SKIP_DIR1="Skip dir1:"
+  MSG_SKIP_DIR3="Skip dir3:"
+  MSG_SRC_FILE="src file:"
+  MSG_DST_FILE="dst file:"
+  MSG_MKDIR="mkdir -p"
+  MSG_CP_L="cp -l"
+  MSG_CP="cp"
+  MSG_SEP="--"
+  ;;
+*)
+  # Chinese messages / 中文消息
+  MSG_USAGE_SHORT="Usage:mklink.sh sourcedir dstdir"
+  MSG_USER_SET="User set:"
+  MSG_DEF_SET="use default set:"
+  MSG_SRC_LABEL="源目录src:"
+  MSG_DST_LABEL="目的目录dst:"
+  MSG_WORK="work:"
+  MSG_SKIP_DIR1="跳过处理目录1:"
+  MSG_SKIP_DIR3="跳过处理目录3:"
+  MSG_SRC_FILE="src file:"
+  MSG_DST_FILE="dst file:"
+  MSG_MKDIR="mkdir -p"
+  MSG_CP_L="cp -l"
+  MSG_CP="cp"
+  MSG_SEP="--"
+  ;;
+esac
 
+# 默认源目录和目标目录 / Default source and destination dirs
 SRC="/share/Download/tmp/src"
 DST="/share/Download/tmp/dst"
 
+# 文件大小阈值：大于此值硬链接，小于此值复制
+# File size threshold: files larger than this get hardlinked, smaller ones get copied
+# 默认 1000000c = 1MB，可改为 10M、100M、1G 等
+# Default is 1000000c (1 MB). Can also use 10M, 100M, 1G etc.
 FILEGIG=1000000c
 
-SAVEIFS=$IFS
-IFS=$(echo -en "\n\b")
-
-function servicectl_usage(){
-  echo "Usage:mklink.sh sourcedir dstdir"
-  return 1 
-}
-
-function servicectl(){
-[[ -z $1 || -z $2 ]] && servicectl_usage
-}
-
+# 参数处理：如果给了 2 个参数就用用户指定的目录，否则显示默认目录并退出
+# Argument handling: if 2 args provided, use them; otherwise show defaults and exit
 if [ $# -eq 2 ]; then
     SRC=$1
     DST=$2
-    echo "User set:"
-    echo "src:$SRC"
-    echo "dst:$DST"
+    echo "$MSG_USER_SET"
+    echo "$MSG_SRC_LABEL$SRC"
+    echo "$MSG_DST_LABEL$DST"
 else
-    servicectl_usage
-    echo "use default set:"
-    echo "源目录src:$SRC"
-    echo "目的目录dst:$DST"
-    exit -1
+    echo "$MSG_USAGE_SHORT"
+    echo "$MSG_DEF_SET"
+    echo "$MSG_SRC_LABEL$SRC"
+    echo "$MSG_DST_LABEL$DST"
+    exit 1
 fi
 
-#查找大于1M的文件，硬链接
-for i in `find $SRC -size +$FILEGIG`
-do
+# 大于阈值（默认 1MB）→ 硬链接
+# Files larger than threshold → hardlink
+find "$SRC" -size +"$FILEGIG" 2>/dev/null | while IFS= read -r i; do
 
-    echo "work:$i"
+    echo "$MSG_WORK$i"
 
-    if [ -d $i ]; then
-        echo "跳过处理目录1:$i"
-        echo "--"
-        continue
-        else if [ -e $i ]; then
-        echo "src file:$i"
-        fi
+    [ -d "$i" ] && { echo "$MSG_SKIP_DIR1$i"; echo "$MSG_SEP"; continue; }
+
+    tmppth=$(dirname "$i")
+    pth=$(echo "$tmppth" | sed "s|$SRC|$DST|")
+
+    if [ ! -d "$pth" ]; then
+        echo "$MSG_MKDIR $pth"
+        mkdir -p "$pth"
     fi
-    
-    #判断目录是否已经存在
-    tmppth=`dirname $i`
-    pth=${tmppth/"$SRC"/"$DST"}
-    if [ ! -d $pth ]; then
-        echo "mkdir -p $pth"
-        mkdir -p $pth
-    #else
-    #    echo "跳过处理目录2:$i"
-    #    echo "--"
-    #    continue
+
+    dstfile="$pth"/$(basename "$i")
+    echo "$MSG_DST_FILE$dstfile"
+
+    if [ ! -f "$dstfile" ]; then
+      echo "$MSG_CP_L $i $dstfile"
+      cp -l "$i" "$dstfile"
     fi
-    
-    dstfile=$pth/`basename $i`
-    echo "dst file:${dstfile}"
-    
-    #判断文件是否已经存在
-    #不存在才复制
-    if [ ! -f $dstfile ]; then
-      echo "cp -l $i $dstfile"
-      cp -l $i $dstfile
-    fi
-    
-    echo "--"
+
+    echo "$MSG_SEP"
 
 done
 
+# 小于阈值（默认 1MB）→ 复制
+# Files smaller than threshold → copy
+find "$SRC" -size -"$FILEGIG" 2>/dev/null | while IFS= read -r i; do
 
+    echo "$MSG_WORK$i"
 
-#查找小于1M的文件，复制小于1m的文件
-for i in `find $SRC -size -$FILEGIG`
-do
+    [ -d "$i" ] && { echo "$MSG_SKIP_DIR3$i"; echo "$MSG_SEP"; continue; }
 
-    echo "work:$i"
+    tmppth=$(dirname "$i")
+    pth=$(echo "$tmppth" | sed "s|$SRC|$DST|")
 
-    if [ -d $i ]; then
-        echo "跳过处理目录3:$i"
-        echo "--"
-        continue
-        else if [ -e $i ]; then
-        echo "src file:$i"
-        fi
+    if [ ! -d "$pth" ]; then
+      echo "$MSG_MKDIR $pth"
+      mkdir -p "$pth"
     fi
-    
-    #判断目录是否已经存在
-    tmppth=`dirname $i`
-    pth=${tmppth/"$SRC"/"$DST"}
-    if [ ! -d $pth ]; then
-      echo "mkdir -p $pth"
-      mkdir -p $pth
+
+    dstfile="$pth"/$(basename "$i")
+    echo "$MSG_DST_FILE$dstfile"
+
+    if [ ! -f "$dstfile" ]; then
+      echo "$MSG_CP $i $dstfile"
+      cp "$i" "$dstfile"
     fi
-    
-    dstfile=$pth/`basename $i`
-    echo "dst file:${dstfile}"
-    
-    #判断文件是否已经存在
-    #不存在才复制
-    if [ ! -f $dstfile ]; then
-      echo "cp $i $dstfile"
-      cp $i $dstfile
-    fi
-    
-    echo "--"
+
+    echo "$MSG_SEP"
 
 done
-
-IFS=$SAVEIFS
