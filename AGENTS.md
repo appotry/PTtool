@@ -62,26 +62,28 @@ tests/
 ## 经验知识库
 
 共享路径：`~/Work/dev-experience/`
-本项目标签：`cli`, `shell`, `testing`, `documentation`, `architecture`, `docker`, `git-workflow`, `i18n`
+本项目标签：`cli`, `shell`, `python`, `automation`, `devops`
 
 ### 同步策略
 
 - 每次 session 开始时自动同步经验库
 - 完成任务后检查是否有新经验需要应用
 - 同步后输出变更摘要
+- **经验版本验证**：每次 session 开始时检查相关经验版本号，如有更新则读取新版并向用户展示变化摘要，用户确认后应用重构优化。
+- **最小化引用**：非必要不引入新经验。工作内容变动需引入新经验时，先向用户展示摘要确认后再添加。
 
 ### 引用经验
 
 | 引用 | 路径 | 用途 |
 |------|------|------|
-| 项目类型文档体系 | `04-documentation/05-project-type-doc-architecture.md` | 本项目 B 类文档体系设计 |
-| Docker 测试架构 | `08-testing/03-docker-test-architecture.md` | tests/ 目录结构、两级测试策略 |
-| 经验同步机制 | `00-ai-agent/08-experience-sync-workflow.md` | AGENTS.md 同步节设计 |
-| 文档初始化工作流 | `04-documentation/03-doc-bootstrap-workflow.md` | docs/ 创建顺序 |
-| 平台差异处理 | `99-general/03-platform-diff.md` | `readlink -f` 替代、`exit -1` 修复 |
-| 静默失败预防 | `99-general/01-silent-failure.md` | 脚本返回值检查、curl -d 展开 |
-| 项目类型标签 | `00-ai-agent/03-project-type-tagging.md` | 标签体系设计 |
-| 批判性经验消费 | `00-ai-agent/05-critical-experience-consumption.md` | 经验适用性评估 |
-| Shell 编码规范 | `99-general/05-shell-coding-standards.md` | 本项目的 POSIX sh 遵循规范 |
-| Python 编码规范 | `99-general/06-python-coding-standards.md` | rename_episodes.py 遵循规范 |
-| 敏感数据隔离 | `00-ai-agent/11-sensitive-data-redaction.md` | AGENTS.md 本身不包含敏感信息 |
+| 项目类型文档体系 | `04-documentation/05-project-type-doc-architecture.md`（v1.0.0） | 本项目 B 类文档体系设计 |
+| Docker 测试架构 | `08-testing/03-docker-test-architecture.md`（v1.0.0） | tests/ 目录结构、两级测试策略 |
+| 经验同步机制 | `00-ai-agent/08-experience-sync-workflow.md`（v1.0.0） | AGENTS.md 同步节设计 |
+| 文档初始化工作流 | `04-documentation/03-doc-bootstrap-workflow.md`（v1.0.0） | docs/ 创建顺序 |
+| 平台差异处理 | `99-general/03-platform-diff.md`（v1.0.0） | `readlink -f` 替代、`exit -1` 修复 |
+| 静默失败预防 | `99-general/01-silent-failure.md`（v1.0.0） | 脚本返回值检查、curl -d 展开 |
+| 项目类型标签 | `00-ai-agent/03-project-type-tagging.md`（v1.0.0） | 标签体系设计 |
+| 批判性经验消费 | `00-ai-agent/05-critical-experience-consumption.md`（v1.0.0） | 经验适用性评估 |
+| Shell 编码规范 | `99-general/05-shell-coding-standards.md`（v1.0.0） | 本项目的 POSIX sh 遵循规范 |
+| Python 编码规范 | `99-general/06-python-coding-standards.md`（v1.0.0） | rename_episodes.py 遵循规范 |
+| 敏感数据隔离 | `00-ai-agent/11-sensitive-data-redaction.md`（v1.0.0） | AGENTS.md 本身不包含敏感信息 |
